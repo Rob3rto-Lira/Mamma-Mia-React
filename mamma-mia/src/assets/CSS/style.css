@@ -1,8 +1,12 @@
+body {
+  overflow-x: hidden;
+}
+
 .layout-grid {
   display: grid;
   grid-template-areas:
     "navbar navbar"
-    "header header"
+    "home home"
     "footer footer";
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr 1fr;
@@ -13,17 +17,55 @@
 .navbar {
   grid-area: navbar;
   padding: 1.5rem;
-  background: #222;
+  background: rgb(255, 8, 0);
   color: #fff;
   border-bottom: 2px solid #000;
 }
 
-.header {
-  grid-area: header;
-  padding: 1.5rem;
-  background: #333;
-  color: #fff;
+.home {
+  grid-area: home;
   border-bottom: 2px solid #000;
+}
+
+.header-IMG {
+  min-height: 20%;
+  background-image: url("../IMG/Header.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.CardPizza {
+  max-width: 20%;
+  flex: 1 1 30%;
+  margin: 1%;
+  box-sizing: border-box;
+}
+
+/* 2 columns on medium screens */
+@media (max-width: 900px) {
+  .CardPizza {
+    max-width: 45%;
+    flex-basis: 45%;
+  }
+}
+
+/* 1 column on small screens */
+@media (max-width: 600px) {
+  .CardPizza {
+    max-width: 95%;
+    flex-basis: 95%;
+  }
 }
 
 .footer {
