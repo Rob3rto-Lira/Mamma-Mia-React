@@ -19,15 +19,14 @@ body {
   padding: 1.5rem;
   background: rgb(255, 8, 0);
   color: #fff;
-  border-bottom: 2px solid #000;
 }
 
 .home {
   grid-area: home;
-  border-bottom: 2px solid #000;
 }
 
 .header-IMG {
+  color: white;
   min-height: 20%;
   background-image: url("../IMG/Header.jpg");
   background-size: cover;
@@ -52,7 +51,6 @@ body {
   box-sizing: border-box;
 }
 
-/* 2 columns on medium screens */
 @media (max-width: 900px) {
   .CardPizza {
     max-width: 45%;
@@ -60,7 +58,6 @@ body {
   }
 }
 
-/* 1 column on small screens */
 @media (max-width: 600px) {
   .CardPizza {
     max-width: 95%;
@@ -73,5 +70,4 @@ body {
   padding: 1.5rem;
   background: #222;
   color: #fff;
-  border-top: 2px solid #000;
 }
