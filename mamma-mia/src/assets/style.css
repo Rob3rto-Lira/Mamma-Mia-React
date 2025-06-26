@@ -1,3 +1,8 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
 .layout-grid {
   display: grid;
   grid-template-areas:
