@@ -6,7 +6,7 @@ import Home from "./components/Home/Home";
 import Footer from "./components/Footer/Footer";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
-// hito 3
+
 function App() {
   const [count, setCount] = useState(0);
 
