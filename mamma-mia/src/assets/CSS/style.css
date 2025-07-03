@@ -23,6 +23,7 @@ body {
 
 .home {
   grid-area: home;
+  overflow: auto;
 }
 
 .header-IMG {
@@ -40,12 +41,12 @@ body {
 
 .cards {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
 .CardPizza {
-  max-width: 20%;
+  max-width: 25%;
   flex: 1 1 30%;
   margin: 1%;
   box-sizing: border-box;

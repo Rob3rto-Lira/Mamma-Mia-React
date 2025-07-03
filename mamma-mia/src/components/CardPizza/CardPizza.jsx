@@ -5,12 +5,13 @@ const formatTotal = (value) => {
   const num = Number(value);
   return isNaN(num) ? value : num.toLocaleString("es-CL");
 };
-const CardPizza = ({ img, title, ingredients, price }) => {
+const CardPizza = ({ img, name, ingredients, price, id }) => {
+  console.log("CardPizza id:", id);
   return (
     <Card className="CardPizza">
       <Card.Img variant="top" src={img} />
       <Card.Body>
-        <Card.Title>{title}</Card.Title>
+        <Card.Title>{name}</Card.Title>
         <hr />
         <div style={{ textAlign: "center" }}>
           <p style={{ color: "gray" }}>Ingredientes:</p>

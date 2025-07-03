@@ -6,6 +6,7 @@ import Home from "./components/Home/Home";
 import Footer from "./components/Footer/Footer";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -17,11 +18,12 @@ function App() {
           <Navbar />
         </nav>
         <div className="home">
-          {/* <Home /> */}
-          <div className="register-container">
-            {/* <Register /> */}
+          <Home />
+          {/* <Cart /> */}
+          {/* <div className="register-container">
+            <Register />
             <Login />
-          </div>
+          </div> */}
         </div>
         <footer className="footer">
           <Footer />
