@@ -4,15 +4,56 @@ import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import CartPizza from "../CartPizza/CartPizza.jsx";
 
+const formatTotal = (value) => {
+  const num = Number(value);
+  return isNaN(num) ? value : num.toLocaleString("es-CL");
+};
+
 const Cart = () => {
-  const [cart, setCart] = useState(1);
-  // const { cart, setCart } = useState('0');
+  const [cart, setCart] = useState(pizzaCart);
+
+  const handleIncrement = (pizzaName) => {
+    setCart((prevCart) =>
+      prevCart.map((pizza) =>
+        pizza.name === pizzaName ? { ...pizza, count: pizza.count + 1 } : pizza
+      )
+    );
+  };
+
+  const handleDecrement = (pizzaName) => {
+    setCart((prevCart) =>
+      prevCart
+        .map((pizza) =>
+          pizza.name === pizzaName
+            ? { ...pizza, count: Math.max(0, pizza.count - 1) }
+            : pizza
+        )
+        .filter((pizza) => pizza.count > 0)
+    );
+  };
+
+  const total = cart.reduce((acc, pizza) => acc + pizza.price * pizza.count, 0);
+
   return (
     <div className="cart-container">
       <h2>Detalles del pedido:</h2>
-      <CartPizza />
+      {cart.map((p) => (
+        <ul>
+          <li>
+            <CartPizza
+              key={p.id}
+              img={p.img}
+              name={p.name}
+              price={p.price}
+              count={p.count}
+              onDecrement={() => handleDecrement(p.name)}
+              onIncrement={() => handleIncrement(p.name)}
+            />
+          </li>
+        </ul>
+      ))}
       <h1>
-        Total: $5.950 <Button variant="dark">Pagar</Button>
+        Total: ${formatTotal(total)} <Button variant="dark">Pagar</Button>
       </h1>
     </div>
   );

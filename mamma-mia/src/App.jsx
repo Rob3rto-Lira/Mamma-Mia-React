@@ -18,8 +18,8 @@ function App() {
           <Navbar />
         </nav>
         <div className="home">
-          {/* <Home /> */}
-          <Cart />
+          <Home />
+          {/* <Cart /> */}
           {/* <div className="register-container">
             <Register />
             <Login />

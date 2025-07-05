@@ -6,6 +6,8 @@ const formatTotal = (value) => {
   return isNaN(num) ? value : num.toLocaleString("es-CL");
 };
 const CardPizza = ({ img, name, ingredients, price, id }) => {
+  const safeIngredients = Array.isArray(ingredients) ? ingredients : [];
+
   console.log("CardPizza id:", id);
   return (
     <Card className="CardPizza">
@@ -15,7 +17,11 @@ const CardPizza = ({ img, name, ingredients, price, id }) => {
         <hr />
         <div style={{ textAlign: "center" }}>
           <p style={{ color: "gray" }}>Ingredientes:</p>
-          <p>{ingredients}</p>
+          <ul>
+            {safeIngredients.map((ingredient, idx) => (
+              <li key={idx}>{ingredient}</li>
+            ))}
+          </ul>
           <hr />
           <h4>${formatTotal(price)}</h4>
         </div>
