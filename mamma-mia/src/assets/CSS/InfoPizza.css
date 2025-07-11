@@ -1,0 +1,17 @@
+.InfoPizza {
+  max-width: 80%;
+  margin: 1%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 1159px) {
+  .InfoPizza {
+    max-width: 80%;
+    margin: 1%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -8,10 +8,10 @@ import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import Cart from "./components/Cart/Cart";
 import axios from "axios";
+import Pizza from "./components/Pizza/Pizza";
 
 function App() {
   const [count, setCount] = useState(0);
-
 
   return (
     <>
@@ -20,12 +20,15 @@ function App() {
           <Navbar />
         </nav>
         <div className="home">
-          <Home />
+          {/* <Home /> */}
           {/* <Cart /> */}
+
           {/* <div className="register-container">
             <Register />
             <Login />
+            
           </div> */}
+          <Pizza />
         </div>
         <footer className="footer">
           <Footer />

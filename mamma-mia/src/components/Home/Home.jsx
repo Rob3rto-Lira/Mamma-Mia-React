@@ -1,12 +1,10 @@
 import Header from "../Header/Header";
 import CardPizza from "../CardPizza/CardPizza";
-import { pizzas } from "../../assets/JS/pizzas.js";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-
 const Home = () => {
-  const [ pizza, setPizza ] = useState([]);
+  const [pizza, setPizza] = useState([]);
 
   useEffect(() => {
     pizzaAPI();
@@ -21,7 +19,7 @@ const Home = () => {
     }
   }
 
-  console.log(pizza)
+  console.log(pizza);
 
   return (
     <>
