@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./assets/CSS/style.css";
 import "./assets/CSS/register.css";
 import Navbar from "./components/Navbar/Navbar";
@@ -7,9 +7,11 @@ import Footer from "./components/Footer/Footer";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import Cart from "./components/Cart/Cart";
+import axios from "axios";
 
 function App() {
   const [count, setCount] = useState(0);
+
 
   return (
     <>

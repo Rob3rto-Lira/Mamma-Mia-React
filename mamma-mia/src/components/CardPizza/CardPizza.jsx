@@ -8,7 +8,6 @@ const formatTotal = (value) => {
 const CardPizza = ({ img, name, ingredients, price, id }) => {
   const safeIngredients = Array.isArray(ingredients) ? ingredients : [];
 
-  console.log("CardPizza id:", id);
   return (
     <Card className="CardPizza">
       <Card.Img variant="top" src={img} />
