@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const total = 25000;
-  const token = false;
+  const token = true;
   const formatTotal = (num) => num.toLocaleString("es-CL");
 
   return (
@@ -15,7 +15,11 @@ const Navbar = () => {
       </Button>
       {token ? (
         <>
-          <Button variant="danger">🔓 Profile</Button>
+          <Button variant="danger">
+            <Link to="/profile" className="text-white text-decoration-none">
+              🔓 Profile
+            </Link>
+          </Button>
           <Button variant="danger">🔒 Logout</Button>
         </>
       ) : (
@@ -27,9 +31,9 @@ const Navbar = () => {
           </Button>
           <Button variant="danger">
             <Link to="/register" className="text-white text-decoration-none">
-            🔐 Register
+              🔐 Register
             </Link>
-            </Button>
+          </Button>
         </>
       )}
 
