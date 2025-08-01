@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const total = 25000;
-  const token = true;
+  const token = false;
   const formatTotal = (num) => num.toLocaleString("es-CL");
 
   return (
