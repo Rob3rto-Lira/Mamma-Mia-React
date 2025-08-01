@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./assets/CSS/style.css";
 import "./assets/CSS/register.css";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/Footer";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
 import axios from "axios";
-import Pizza from "./components/Pizza/Pizza";
+import Pizza from "./pages/Pizza";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -28,8 +28,6 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/pizza/p001" element={<Pizza />} />
           </Routes>
-
-          {/* <Pizza /> */}
         </div>
         <footer className="footer">
           <Footer />

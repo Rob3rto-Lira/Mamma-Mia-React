@@ -1,5 +1,5 @@
-import Header from "../components/Header/Header";
-import CardPizza from "../components/CardPizza/CardPizza";
+import Header from "../components/Header";
+import CardPizza from "../components/CardPizza";
 import { useEffect, useState } from "react";
 import axios from "axios";
 

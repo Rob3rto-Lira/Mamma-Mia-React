@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import PizzaInfo from "../PizzaInfo/PizzaInfo";
+import PizzaInfo from "../components/PizzaInfo";
 
 const Pizza = () => {
   const [pizza, setPizza] = useState([]);
