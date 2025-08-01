@@ -24,3 +24,21 @@ body {
   display: flex;
   flex-direction: row;
 }
+
+.cart-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .cart-pizza-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .cart-buttons {
+    margin-top: 0.5rem;
+  }
+}

@@ -12,7 +12,7 @@ const NotFound = () => {
           src="https://media.istockphoto.com/id/806370190/vector/on-kitchen-stove-burns-food.jpg?s=612x612&w=0&k=20&c=zS5giMBAW1tVDp3IEkDpst2fqtdbu6Day71JIeOtftA="
           alt="Error 404"
         />
-        <Button variant="danger" style={{ width: "10%", height: "50px" }}>
+        <Button variant="danger">
             <Link to="/" className="text-white text-decoration-none">
               Volver
             </Link>

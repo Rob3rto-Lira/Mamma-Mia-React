@@ -1,13 +1,22 @@
 .not-found {
-    background-color: #E93F3F;
-    color: aliceblue;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+  background-color: #e93f3f;
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.not-found h1 {
+  text-align: center;
 }
 
 .not-found img {
-    width: 20%;
+  width: 20%;
+}
+
+@media (max-width: 600px) {
+  .not-found img {
+    width: 50%;
+  }
 }
