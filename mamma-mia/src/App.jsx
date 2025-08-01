@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import "./assets/CSS/style.css";
 import "./assets/CSS/register.css";
 import Navbar from "./components/Navbar/Navbar";
-import Home from "./components/Home/Home";
+import Home from "./pages/Home";
 import Footer from "./components/Footer/Footer";
-import Register from "./components/Register/Register";
-import Login from "./components/Login/Login";
-import Cart from "./components/Cart/Cart";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Cart from "./pages/Cart";
 import axios from "axios";
 import Pizza from "./components/Pizza/Pizza";
 
@@ -20,15 +21,15 @@ function App() {
           <Navbar />
         </nav>
         <div className="home">
-          {/* <Home /> */}
-          {/* <Cart /> */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/pizza/p001" element={<Pizza />} />
+          </Routes>
 
-          {/* <div className="register-container">
-            <Register />
-            <Login />
-            
-          </div> */}
-          <Pizza />
+          {/* <Pizza /> */}
         </div>
         <footer className="footer">
           <Footer />

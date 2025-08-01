@@ -30,24 +30,26 @@ const Register = () => {
     setEmail(event.target.value);
   };
   return (
-    <div className="register">
-      <div style={{ textAlign: "center" }}>
-        <p className="register-form">Email</p>
-        <input type="email" onChange={handleEmail} />
-      </div>
-      <div style={{ textAlign: "center" }}>
-        <p className="register-form">Contraseña</p>
+    <div className="register-container">
+      <div className="register">
+        <div style={{ textAlign: "center" }}>
+          <p className="register-form">Email</p>
+          <input type="email" onChange={handleEmail} />
+        </div>
+        <div style={{ textAlign: "center" }}>
+          <p className="register-form">Contraseña</p>
+          <input
+            type="password"
+            onChange={(event) => setPassword(event.target.value)}
+          />
+        </div>
+        <p className="register-form">Confirmar contraseña</p>
         <input
           type="password"
-          onChange={(event) => setPassword(event.target.value)}
+          onChange={(event) => setConfirmPassword(event.target.value)}
         />
+        <button onClick={confirm}>Enviar</button>
       </div>
-      <p className="register-form">Confirmar contraseña</p>
-      <input
-        type="password"
-        onChange={(event) => setConfirmPassword(event.target.value)}
-      />
-      <button onClick={confirm}>Enviar</button>
     </div>
   );
 };

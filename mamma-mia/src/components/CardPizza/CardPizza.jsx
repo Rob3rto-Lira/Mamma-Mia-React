@@ -1,5 +1,6 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 
 const formatTotal = (value) => {
   const num = Number(value);
@@ -25,7 +26,11 @@ const CardPizza = ({ img, name, ingredients, price, id }) => {
           <h4>${formatTotal(price)}</h4>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <Button variant="outline-dark">Ver más 👀</Button>
+          <Button variant="outline-dark">
+            <Link to={"/pizza/p001"} className="text-decoration-none text-dark">
+            Ver más 👀
+            </Link>
+            </Button>
           <Button variant="dark">Añadir 🛒</Button>
         </div>
       </Card.Body>

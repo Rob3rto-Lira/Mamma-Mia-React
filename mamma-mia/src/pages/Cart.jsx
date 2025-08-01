@@ -1,8 +1,8 @@
-import { pizzaCart } from "../../assets/JS/pizzas.js";
-import "../../assets/CSS/cart.css";
+import { pizzaCart } from "../assets/JS/pizzas.js";
+import "../assets/CSS/cart.css";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
-import CartPizza from "../CartPizza/CartPizza.jsx";
+import CartPizza from "../components/CartPizza/CartPizza.jsx";
 
 const formatTotal = (value) => {
   const num = Number(value);

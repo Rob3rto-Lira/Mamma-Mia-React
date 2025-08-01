@@ -1,5 +1,5 @@
-import Header from "../Header/Header";
-import CardPizza from "../CardPizza/CardPizza";
+import Header from "../components/Header/Header";
+import CardPizza from "../components/CardPizza/CardPizza";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -28,6 +28,7 @@ const Home = () => {
         {pizza.map((p) => (
           <CardPizza
             key={p.id}
+            id={p.id}
             ingredients={p.ingredients}
             img={p.img}
             name={p.name}
