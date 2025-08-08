@@ -1,8 +1,10 @@
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartPrice } from "../context/CartContext";
 
 const Navbar = () => {
-  const total = 25000;
+  const total = useContext(CartPrice).total;
   const token = false;
   const formatTotal = (num) => num.toLocaleString("es-CL");
 

@@ -12,31 +12,34 @@ import Cart from "./pages/Cart";
 import axios from "axios";
 import Pizza from "./pages/Pizza";
 import NotFound from "./pages/NotFound";
+import CartContext from "./context/CartContext";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <div className="layout-grid">
-        <nav className="navbar">
-          <Navbar />
-        </nav>
-        <div className="home">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/pizza/p001" element={<Pizza />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+      <CartContext>
+        <div className="layout-grid">
+          <nav className="navbar">
+            <Navbar />
+          </nav>
+          <div className="home">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/pizza/p001" element={<Pizza />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
+          <footer className="footer">
+            <Footer />
+          </footer>
         </div>
-        <footer className="footer">
-          <Footer />
-        </footer>
-      </div>
+      </CartContext>
     </>
   );
 }

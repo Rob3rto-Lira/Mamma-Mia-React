@@ -1,7 +1,8 @@
-import { pizzaCart } from "../assets/JS/pizzas.js";
+// import { pizzaCart } from "../assets/JS/pizzas.js";
 import "../assets/CSS/cart.css";
 import Button from "react-bootstrap/Button";
-import { useState } from "react";
+import { useContext } from "react";
+import { CartPrice } from "../context/CartContext.jsx";
 import CartPizza from "../components/CartPizza.jsx";
 
 const formatTotal = (value) => {
@@ -10,7 +11,7 @@ const formatTotal = (value) => {
 };
 
 const Cart = () => {
-  const [cart, setCart] = useState(pizzaCart);
+  const { cart, setCart, total } = useContext(CartPrice);
 
   const handleIncrement = (pizzaName) => {
     setCart((prevCart) =>
@@ -32,16 +33,13 @@ const Cart = () => {
     );
   };
 
-  const total = cart.reduce((acc, pizza) => acc + pizza.price * pizza.count, 0);
-
   return (
     <div className="cart-container">
       <h2>Detalles del pedido:</h2>
-      {cart.map((p) => (
-        <ul>
-          <li>
+      <ul>
+        {cart.map((p) => (
+          <li key={p.id}>
             <CartPizza
-              key={p.id}
               img={p.img}
               name={p.name}
               price={p.price}
@@ -50,8 +48,8 @@ const Cart = () => {
               onIncrement={() => handleIncrement(p.name)}
             />
           </li>
-        </ul>
-      ))}
+        ))}
+      </ul>
       <h1>
         Total: ${formatTotal(total)} <Button variant="dark">Pagar</Button>
       </h1>
