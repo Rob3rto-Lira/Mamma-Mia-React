@@ -14,9 +14,8 @@ const CartPizza = ({
   onDecrement,
   onIncrement,
 }) => {
-  console.log(id);
   return (
-    <div className="cart-pizza-container">
+    <div className="cart-pizza-container" key={id}>
       <div className="cart-pizza">
         <img src={img} />
         <h3>{name}</h3>

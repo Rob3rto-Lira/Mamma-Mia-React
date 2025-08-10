@@ -13,19 +13,19 @@ const formatTotal = (value) => {
 const Cart = () => {
   const { cart, setCart, total } = useContext(CartPrice);
 
-  const handleIncrement = (pizzaName) => {
+  const handleIncrement = (pizzaId) => {
     setCart((prevCart) =>
       prevCart.map((pizza) =>
-        pizza.name === pizzaName ? { ...pizza, count: pizza.count + 1 } : pizza
+        pizza.id === pizzaId ? { ...pizza, count: pizza.count + 1 } : pizza
       )
     );
   };
 
-  const handleDecrement = (pizzaName) => {
+  const handleDecrement = (pizzaId) => {
     setCart((prevCart) =>
       prevCart
         .map((pizza) =>
-          pizza.name === pizzaName
+          pizza.id === pizzaId
             ? { ...pizza, count: Math.max(0, pizza.count - 1) }
             : pizza
         )
@@ -37,17 +37,16 @@ const Cart = () => {
     <div className="cart-container">
       <h2>Detalles del pedido:</h2>
       <ul>
-        {cart.map((p) => (
-          <li key={p.id}>
-            <CartPizza
-              img={p.img}
-              name={p.name}
-              price={p.price}
-              count={p.count}
-              onDecrement={() => handleDecrement(p.name)}
-              onIncrement={() => handleIncrement(p.name)}
-            />
-          </li>
+        {cart.map((p, index) => (
+          <CartPizza
+            key={`${p.id}-${index}`}
+            img={p.img}
+            name={p.name}
+            price={p.price}
+            count={p.count}
+            onDecrement={() => handleDecrement(p.id)}
+            onIncrement={() => handleIncrement(p.id)}
+          />
         ))}
       </ul>
       <h1>

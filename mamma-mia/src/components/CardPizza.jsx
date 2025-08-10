@@ -6,7 +6,7 @@ const formatTotal = (value) => {
   const num = Number(value);
   return isNaN(num) ? value : num.toLocaleString("es-CL");
 };
-const CardPizza = ({ img, name, ingredients, price, id }) => {
+const CardPizza = ({ img, name, ingredients, price, id, onAddToCart }) => {
   const safeIngredients = Array.isArray(ingredients) ? ingredients : [];
 
   return (
@@ -28,10 +28,15 @@ const CardPizza = ({ img, name, ingredients, price, id }) => {
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <Button variant="outline-dark">
             <Link to={"/pizza/p001"} className="text-decoration-none text-dark">
-            Ver más 👀
+              Ver más 👀
             </Link>
-            </Button>
-          <Button variant="dark">Añadir 🛒</Button>
+          </Button>
+          <Button
+            variant="dark"
+            onClick={() => onAddToCart({ img, name, price, id })}
+          >
+            Añadir 🛒
+          </Button>
         </div>
       </Card.Body>
     </Card>

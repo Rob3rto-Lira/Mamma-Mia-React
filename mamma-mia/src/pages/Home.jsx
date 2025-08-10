@@ -1,25 +1,10 @@
 import Header from "../components/Header";
 import CardPizza from "../components/CardPizza";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useContext } from "react";
+import { CartPrice } from "../context/CartContext";
 
 const Home = () => {
-  const [pizza, setPizza] = useState([]);
-
-  useEffect(() => {
-    pizzaAPI();
-  }, []);
-
-  async function pizzaAPI() {
-    try {
-      const { data } = await axios.get("http://localhost:5000/api/pizzas");
-      setPizza(data);
-    } catch (error) {
-      console.error("Error fetching pizzas:", error);
-    }
-  }
-
-  console.log(pizza);
+  const { addToCart, pizza } = useContext(CartPrice);
 
   return (
     <>
@@ -33,6 +18,7 @@ const Home = () => {
             img={p.img}
             name={p.name}
             price={p.price}
+            onAddToCart={addToCart}
           />
         ))}
       </div>
