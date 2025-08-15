@@ -6,7 +6,15 @@ const formatTotal = (value) => {
   const num = Number(value);
   return isNaN(num) ? value : num.toLocaleString("es-CL");
 };
-const PizzaInfo = ({ img, name, desc, ingredients, price, id }) => {
+const PizzaInfo = ({
+  img,
+  name,
+  desc,
+  ingredients,
+  price,
+  id,
+  onAddToCart,
+}) => {
   const safeIngredients = Array.isArray(ingredients) ? ingredients : [];
 
   return (
@@ -28,7 +36,12 @@ const PizzaInfo = ({ img, name, desc, ingredients, price, id }) => {
           <h4>${formatTotal(price)}</h4>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <Button variant="dark">Añadir 🛒</Button>
+          <Button
+            variant="dark"
+            onClick={() => onAddToCart({ img, name, price, id })}
+          >
+            Añadir 🛒
+          </Button>
         </div>
       </Card.Body>
     </Card>
