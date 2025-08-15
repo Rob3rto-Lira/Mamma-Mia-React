@@ -27,7 +27,7 @@ const CardPizza = ({ img, name, ingredients, price, id, onAddToCart }) => {
         </div>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <Button variant="outline-dark">
-            <Link to={"/pizza/p001"} className="text-decoration-none text-dark">
+            <Link to={`/pizza/${id}`} className="text-decoration-none text-dark">
               Ver más 👀
             </Link>
           </Button>
