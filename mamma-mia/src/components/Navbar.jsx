@@ -2,10 +2,16 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartPrice } from "../context/CartContext";
+import { AccountContext } from "../context/UserContext";
 
 const Navbar = () => {
   const total = useContext(CartPrice).total;
-  const token = false;
+  const { tokenState, setTokenState } = useContext(AccountContext);
+
+  const handleLogout = () => {
+    setTokenState(false);
+  };
+
   const formatTotal = (num) => num.toLocaleString("es-CL");
 
   return (
@@ -15,14 +21,18 @@ const Navbar = () => {
           🍕 Home
         </Link>
       </Button>
-      {token ? (
+      {tokenState ? (
         <>
           <Button variant="danger">
             <Link to="/profile" className="text-white text-decoration-none">
               🔓 Profile
             </Link>
           </Button>
-          <Button variant="danger">🔒 Logout</Button>
+          <Button variant="danger" onClick={handleLogout}>
+            <Link to="/" className="text-white text-decoration-none">
+              🔒 Logout
+            </Link>
+          </Button>
         </>
       ) : (
         <>

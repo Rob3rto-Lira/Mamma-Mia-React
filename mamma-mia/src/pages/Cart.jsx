@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import { useContext } from "react";
 import { CartPrice } from "../context/CartContext.jsx";
 import CartPizza from "../components/CartPizza.jsx";
+import { AccountContext } from "../context/UserContext.jsx";
 
 const formatTotal = (value) => {
   const num = Number(value);
@@ -12,6 +13,7 @@ const formatTotal = (value) => {
 
 const Cart = () => {
   const { cart, setCart, total } = useContext(CartPrice);
+  const { tokenState } = useContext(AccountContext);
 
   const handleIncrement = (pizzaId) => {
     setCart((prevCart) =>
@@ -50,7 +52,12 @@ const Cart = () => {
         ))}
       </ul>
       <h1>
-        Total: ${formatTotal(total)} <Button variant="dark">Pagar</Button>
+        Total: ${formatTotal(total)}
+        {tokenState ? (
+          <Button variant="dark">Pagar</Button>
+        ) : (
+          <span> (Inicia sesión para pagar)</span>
+        )}
       </h1>
     </div>
   );
