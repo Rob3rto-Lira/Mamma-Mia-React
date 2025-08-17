@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const AccountContext = createContext();
 
 const UserContext = ({ children }) => {
-  const token = true;
+  const token = false;
 
   const [ tokenState, setTokenState ] = useState(token);
   
