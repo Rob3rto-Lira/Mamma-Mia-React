@@ -25,12 +25,12 @@ const Navbar = () => {
         <>
           <Button variant="danger">
             <Link to="/profile" className="text-white text-decoration-none">
-              🔓 Profile
+              🔓 Perfil
             </Link>
           </Button>
           <Button variant="danger" onClick={handleLogout}>
             <Link to="/" className="text-white text-decoration-none">
-              🔒 Logout
+              🔒 Cerrar sesión
             </Link>
           </Button>
         </>
@@ -38,12 +38,12 @@ const Navbar = () => {
         <>
           <Button variant="danger">
             <Link to="/login" className="text-white text-decoration-none">
-              🔐 Login
+              🔐 Iniciar sesión
             </Link>
           </Button>
           <Button variant="danger">
             <Link to="/register" className="text-white text-decoration-none">
-              🔐 Register
+              🔐 Registrar
             </Link>
           </Button>
         </>
@@ -51,7 +51,7 @@ const Navbar = () => {
 
       <Button variant="danger">
         <Link to="/cart" className="text-white text-decoration-none">
-          🛒 Total: ${formatTotal(total)}
+          🛒 Carrito: ${formatTotal(total)}
         </Link>
       </Button>
     </>
