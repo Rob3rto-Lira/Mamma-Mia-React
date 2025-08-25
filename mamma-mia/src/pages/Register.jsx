@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AccountContext } from "../context/UserContext";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const { setTokenState } = useContext(AccountContext);
   const confirm = () => {
     if (
       email.trim() === "" ||
@@ -23,6 +25,7 @@ const Register = () => {
       return;
     } else {
       alert("Registro exitoso");
+      setTokenState(true);
     }
   };
 

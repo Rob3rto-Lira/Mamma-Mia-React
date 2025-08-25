@@ -6,10 +6,10 @@ import { AccountContext } from "../context/UserContext";
 
 const Navbar = () => {
   const total = useContext(CartPrice).total;
-  const { tokenState, setTokenState } = useContext(AccountContext);
+  const { tokenState, logout } = useContext(AccountContext);
 
   const handleLogout = () => {
-    setTokenState(false);
+    logout();
   };
 
   const formatTotal = (num) => num.toLocaleString("es-CL");

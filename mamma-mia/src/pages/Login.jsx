@@ -5,7 +5,7 @@ import { AccountContext } from "../context/UserContext";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { setTokenState } = useContext(AccountContext);
+  const { setTokenState, user, setUser, handleLogin } = useContext(AccountContext);
   const navigate = useNavigate();
 
   const confirm = () => {
@@ -16,20 +16,27 @@ const Login = () => {
       alert("La contraseña debe tener al menos 6 caracteres");
       return false;
     } else {
-      setTokenState(true);
       return true;
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (confirm()) {
-      navigate("/");
+      const token = await handleLogin(email, password);
+      if (token) {
+        setTokenState(true);
+        navigate("/");
+        return;
+      }
+    } else {
+      alert("Error en el login");
     }
   };
 
   const handleEmail = (event) => {
     setEmail(event.target.value);
+    setUser(event.target.value);
   };
   const handlePassword = (event) => {
     setPassword(event.target.value);

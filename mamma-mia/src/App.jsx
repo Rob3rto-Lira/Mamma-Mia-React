@@ -13,7 +13,6 @@ import axios from "axios";
 import Pizza from "./pages/Pizza";
 import NotFound from "./pages/NotFound";
 import CartContext from "./context/CartContext";
-import UserContext from "./context/UserContext";
 import { AccountContext } from "./context/UserContext";
 
 function App() {

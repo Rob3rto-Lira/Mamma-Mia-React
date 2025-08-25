@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
-
+import { AccountContext } from "../context/UserContext";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
+  const { user, logout } = useContext(AccountContext);
+
+  const handleLogout = () => {
+    logout();
+  };
+
   return (
     <div className="register-container">
       <div
@@ -15,8 +22,12 @@ const Profile = () => {
         />
         <h1>Usuario Nuevo</h1>
       </div>
-      <h2>perfildeejemplo@gmail.com</h2>
-    <Button variant="danger">Cerrar Sesión</Button>
+      <h2>{JSON.stringify(user)}</h2>
+      <Button variant="danger" onClick={handleLogout}>
+        <Link to="/" className="text-white text-decoration-none">
+          Cerrar Sesión
+        </Link>
+      </Button>
     </div>
   );
 };
