@@ -29,9 +29,7 @@ const Navbar = () => {
             </Link>
           </Button>
           <Button variant="danger" onClick={handleLogout}>
-            <Link to="/" className="text-white text-decoration-none">
-              🔒 Cerrar sesión
-            </Link>
+            🔒 Cerrar sesión
           </Button>
         </>
       ) : (

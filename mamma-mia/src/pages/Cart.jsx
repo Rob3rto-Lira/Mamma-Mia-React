@@ -13,7 +13,7 @@ const formatTotal = (value) => {
 
 const Cart = () => {
   const { cart, setCart, total } = useContext(CartPrice);
-  const { tokenState } = useContext(AccountContext);
+  const { tokenState, handleCart } = useContext(AccountContext);
 
   const handleIncrement = (pizzaId) => {
     setCart((prevCart) =>
@@ -38,27 +38,33 @@ const Cart = () => {
   return (
     <div className="cart-container">
       <h2>Detalles del pedido:</h2>
-      <ul>
-        {cart.map((p, index) => (
-          <CartPizza
-            key={`${p.id}-${index}`}
-            img={p.img}
-            name={p.name}
-            price={p.price}
-            count={p.count}
-            onDecrement={() => handleDecrement(p.id)}
-            onIncrement={() => handleIncrement(p.id)}
-          />
-        ))}
-      </ul>
-      <h1>
-        Total: ${formatTotal(total)}
-        {tokenState ? (
-          <Button variant="dark">Pagar</Button>
-        ) : (
-          <span> (Inicia sesión para pagar)</span>
-        )}
-      </h1>
+      {cart.length === 0 ? (
+        <h3>El carrito está vacío</h3>
+      ) : (
+        <>
+          <ul>
+            {cart.map((p, index) => (
+              <CartPizza
+                key={`${p.id}-${index}`}
+                img={p.img}
+                name={p.name}
+                price={p.price}
+                count={p.count}
+                onDecrement={() => handleDecrement(p.id)}
+                onIncrement={() => handleIncrement(p.id)}
+              />
+            ))}
+          </ul>
+          <h1>
+            Total: ${formatTotal(total)}
+            {tokenState ? (
+              <Button variant="dark" onClick={() => handleCart(cart)}>Pagar</Button>
+            ) : (
+              <span> (Inicia sesión para pagar)</span>
+            )}
+          </h1>
+        </>
+      )}
     </div>
   );
 };

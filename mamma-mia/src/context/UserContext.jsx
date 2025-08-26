@@ -91,6 +91,36 @@ const UserContext = ({ children }) => {
     }
   };
 
+  const handleCart = async (carrito) => {
+    try {
+      const res = await fetch("http://localhost:5000/api/checkouts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify({
+          cart: carrito,
+        }),
+      });
+
+      if (!res.ok) {
+        console.log("error en la orden");
+        alert("Error en la orden");
+        return null;
+      } else {
+        console.log("carrito obtenido");
+        alert("Orden realizada con exito");
+      }
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      console.error("Fetching cart failed:", error);
+      console.log("Servidor no disponible");
+      return null;
+    }
+  };
+
   const logout = () => {
     localStorage.removeItem("token");
     setTokenState(false);
@@ -98,7 +128,15 @@ const UserContext = ({ children }) => {
 
   return (
     <AccountContext.Provider
-      value={{ tokenState, setTokenState, handleLogin, handleRegister, currentProfile, logout }}
+      value={{
+        tokenState,
+        setTokenState,
+        handleLogin,
+        handleRegister,
+        currentProfile,
+        logout,
+        handleCart
+      }}
     >
       {children}
     </AccountContext.Provider>
