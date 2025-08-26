@@ -5,7 +5,7 @@ import { AccountContext } from "../context/UserContext";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { setTokenState, user, setUser, handleLogin } = useContext(AccountContext);
+  const { setTokenState, handleLogin } = useContext(AccountContext);
   const navigate = useNavigate();
 
   const confirm = () => {
@@ -36,7 +36,6 @@ const Login = () => {
 
   const handleEmail = (event) => {
     setEmail(event.target.value);
-    setUser(event.target.value);
   };
   const handlePassword = (event) => {
     setPassword(event.target.value);

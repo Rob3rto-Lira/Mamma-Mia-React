@@ -1,10 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import { AccountContext } from "../context/UserContext";
 import { Link } from "react-router-dom";
 
 const Profile = () => {
-  const { user, logout } = useContext(AccountContext);
+  const { currentProfile, logout } = useContext(AccountContext);
+  const [profile, setProfile] = useState(null);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const data = await currentProfile();
+      setProfile(data);
+    };
+    fetchProfile();
+  }, [currentProfile]);
 
   const handleLogout = () => {
     logout();
@@ -22,7 +31,7 @@ const Profile = () => {
         />
         <h1>Usuario Nuevo</h1>
       </div>
-      <h2>{JSON.stringify(user)}</h2>
+      <h2>{profile ? profile.email : "Cargando perfil..."}</h2>
       <Button variant="danger" onClick={handleLogout}>
         <Link to="/" className="text-white text-decoration-none">
           Cerrar Sesión

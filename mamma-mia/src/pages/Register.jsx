@@ -5,8 +5,9 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const { setTokenState } = useContext(AccountContext);
-  const confirm = () => {
+  const { setTokenState, handleRegister } = useContext(AccountContext);
+
+  const confirm = async () => {
     if (
       email.trim() === "" ||
       password.trim() === "" ||
@@ -24,8 +25,14 @@ const Register = () => {
       alert("La contraseña debe tener al menos 6 caracteres");
       return;
     } else {
-      alert("Registro exitoso");
-      setTokenState(true);
+      const token = await handleRegister(email, password);
+      if (!token) {
+        alert("Ese correo ya está registrado");
+        return;
+      } else {
+        alert("Registro exitoso");
+        setTokenState(true);
+      }
     }
   };
 
